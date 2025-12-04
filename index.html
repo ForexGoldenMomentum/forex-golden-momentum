@@ -63,11 +63,72 @@
         font-size: 0.9rem;
         color: #8a793e;
     }
-</style>
+
+    /* ========================== */
+    /*     CINEMATIC INTRO CSS    */
+    /* ========================== */
+
+    #cinematic-intro {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, #000 40%, #000000 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        animation: fade-out 2s ease forwards;
+        animation-delay: 4.5s; /* total intro duration */
+    }
+
+    .intro-logo {
+        width: 260px;
+        animation:
+            rotate-logo 4s ease-out,
+            brightness-rise 4s ease-out,
+            glow-pulse 3s ease-in-out infinite;
+    }
+
+    /* Slow cinematic rotation */
+    @keyframes rotate-logo {
+        0% { transform: scale(0.6) rotate(-20deg); opacity: 0; }
+        40% { transform: scale(1.05) rotate(10deg); opacity: 1; }
+        100% { transform: scale(1.0) rotate(0deg); }
+    }
+
+    /* Gold brightness rising */
+    @keyframes brightness-rise {
+        0% { filter: brightness(40%) blur(3px); }
+        100% { filter: brightness(120%) blur(0); }
+    }
+
+    /* Soft pulsing glow */
+    @keyframes glow-pulse {
+        0% { filter: drop-shadow(0 0 5px gold); }
+        50% { filter: drop-shadow(0 0 18px gold); }
+        100% { filter: drop-shadow(0 0 5px gold); }
+    }
+
+    /* Fade out screen */
+    @keyframes fade-out {
+        0% { opacity: 1; }
+        100% { opacity: 0; visibility: hidden; }
+    }
+
+    </style>
 
 </head>
 
 <body>
+
+<!-- ========================== -->
+<!--   CINEMATIC INTRO OVERLAY  -->
+<!-- ========================== -->
+<div id="cinematic-intro">
+    <img src="assets/logos/fgm_logo_A_full_3D.png" class="intro-logo">
+</div>
 
 <header>
    <img 
@@ -82,7 +143,6 @@
         margin: 0 auto 20px auto;
     "
 >
-
 
     <h1>Forex Golden Momentum</h1>
     <p>Advanced Trading Systems • Automated EAs • Smart Copy Trading</p>
@@ -130,8 +190,13 @@
     © 2025 Forex Golden Momentum — Built by Felix G. Morandarte Jr.
 </footer>
 
+<!-- Fade-out timing logic -->
+<script>
+setTimeout(() => {
+    let intro = document.getElementById("cinematic-intro");
+    if (intro) intro.style.display = "none";
+}, 6000);
+</script>
+
 </body>
 </html>
-
- 
-
