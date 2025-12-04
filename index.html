@@ -19,26 +19,56 @@
         text-align: center;
     }
 
+    /* ========================== */
+    /*   ROTATING COIN HERO CSS   */
+    /* ========================== */
+
     header {
-        padding: 30px 0 10px 0;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        text-align: left;
     }
 
-    img.logo {
-        display: block;
-        margin: 0 auto;
+    .rotating-coin-wrapper {
+        width: 260px;
+        height: 260px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rotating-coin {
+        width: 100%;
+        height: auto;
+        animation: coin-spin 10s linear infinite;
+        filter: drop-shadow(0 0 22px gold);
+    }
+
+    @keyframes coin-spin {
+        0%   { transform: rotateY(0deg); }
+        100% { transform: rotateY(360deg); }
     }
 
     h1 {
         font-size: 2.4rem;
-        margin-top: 10px;
         color: #ffd95e;
+        margin-bottom: 10px;
         text-shadow: 0 0 8px rgba(255, 217, 94, 0.3);
     }
 
     p {
         font-size: 1.2rem;
         color: #e8d48c;
+        margin-top: 0;
     }
+
+    /* ========================== */
+    /*     BUTTON + FOOTER CSS    */
+    /* ========================== */
 
     .btn {
         display: inline-block;
@@ -74,13 +104,13 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(circle, #000 40%, #000000 100%);
+        background: radial-gradient(circle, #000 40%, #000 100%);
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 9999;
         animation: fade-out 2s ease forwards;
-        animation-delay: 4.5s; /* total intro duration */
+        animation-delay: 4.5s;
     }
 
     .intro-logo {
@@ -91,27 +121,24 @@
             glow-pulse 3s ease-in-out infinite;
     }
 
-    /* Slow cinematic rotation */
+    /* Slow cinematic intro spin */
     @keyframes rotate-logo {
         0% { transform: scale(0.6) rotate(-20deg); opacity: 0; }
         40% { transform: scale(1.05) rotate(10deg); opacity: 1; }
         100% { transform: scale(1.0) rotate(0deg); }
     }
 
-    /* Gold brightness rising */
     @keyframes brightness-rise {
         0% { filter: brightness(40%) blur(3px); }
         100% { filter: brightness(120%) blur(0); }
     }
 
-    /* Soft pulsing glow */
     @keyframes glow-pulse {
         0% { filter: drop-shadow(0 0 5px gold); }
         50% { filter: drop-shadow(0 0 18px gold); }
         100% { filter: drop-shadow(0 0 5px gold); }
     }
 
-    /* Fade out screen */
     @keyframes fade-out {
         0% { opacity: 1; }
         100% { opacity: 0; visibility: hidden; }
@@ -130,23 +157,31 @@
     <img src="assets/logos/fgm_logo_A_full_3D.png" class="intro-logo">
 </div>
 
+<!-- ========================== -->
+<!--     HERO SECTION (NEW)     -->
+<!-- ========================== -->
 <header>
-   <img 
-    src="assets/logos/fgm_logo_A_full_3D.png"
-    alt="Forex Golden Momentum Logo"
-    class="logo"
-    style="
-        width: 240px;
-        max-width: 80%;
-        height: auto;
-        display: block;
-        margin: 0 auto 20px auto;
-    "
->
 
-    <h1>Forex Golden Momentum</h1>
-    <p>Advanced Trading Systems • Automated EAs • Smart Copy Trading</p>
+    <!-- Rotating Coin -->
+    <div class="rotating-coin-wrapper">
+        <img 
+            src="assets/logos/fgm_coin_glow.png"
+            class="rotating-coin"
+            alt="Rotating FGM Gold Coin"
+        >
+    </div>
+
+    <!-- Text Block -->
+    <div>
+        <h1>Forex Golden Momentum</h1>
+        <p>Precision · Momentum · Logic</p>
+    </div>
+
 </header>
+
+<!-- ========================== -->
+<!--       MAIN BUTTONS         -->
+<!-- ========================== -->
 
 <a class="btn" 
    href="https://clicks.pipaffiliates.com/c?c=885187&l=en&p=0&ib=QHFFT" 
@@ -163,7 +198,7 @@
     XM Bonus Offers
 </a>
 
-<!-- Partner Code Display -->
+<!-- Partner Code -->
 <div style="margin-top: 30px; color: #f7d774; font-size: 1.1rem;">
     <strong>XM Partner Code:</strong> 
     <span style="font-weight:bold; color:#ffd95e;">QHFFT</span>
@@ -185,7 +220,7 @@
     ">
     Copy Partner Code
 </button>
-    
+
 <footer>
     © 2025 Forex Golden Momentum — Built by Felix G. Morandarte Jr.
 </footer>
