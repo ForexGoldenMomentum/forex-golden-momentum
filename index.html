@@ -39,11 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* NEW — adds gold glow instead of white square */
-    background: radial-gradient(circle, #5c3b00 0%, #1a0f00 60%, #000000 100%);
-    border-radius: 50%;
-}
+  }
 
 
     .rotating-coin {
@@ -51,11 +47,7 @@
     height: auto;
     animation: coin-spin 10s linear infinite;
     filter: drop-shadow(0 0 22px gold);
-    
-    /* REMOVE WHITE BOX + ADD GOLD GLOW */
-    background: radial-gradient(circle, #5c3b00 0%, #1a0f00 60%, #000000 100%) !important;
-    border-radius: 50%;
-}
+  }
 
 
     @keyframes coin-spin {
