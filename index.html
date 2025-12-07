@@ -34,21 +34,19 @@
     }
 
    .rotating-coin-wrapper {
-    width: 260px;
-    height: 260px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
+        width: 260px;
+        height: 260px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   }
 
     .rotating-coin {
-    width: 100%;
-    height: auto;
-    animation: coin-spin 10s linear infinite;
-    filter: drop-shadow(0 0 22px gold);
-  }
-
+        width: 100%;
+        height: auto;
+        animation: coin-spin 10s linear infinite;
+        filter: drop-shadow(0 0 22px gold);
+    }
 
     @keyframes coin-spin {
         0%   { transform: rotateY(0deg); }
@@ -123,7 +121,6 @@
             glow-pulse 3s ease-in-out infinite;
     }
 
-    /* Slow cinematic intro spin */
     @keyframes rotate-logo {
         0% { transform: scale(0.6) rotate(-20deg); opacity: 0; }
         40% { transform: scale(1.05) rotate(10deg); opacity: 1; }
@@ -151,6 +148,10 @@
 </head>
 
 <body>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="fgm-music" src="assets/music/fgm_theme.wav"></audio>
+
 <!-- ============================== -->
 <!--        TOP NAVIGATION BAR      -->
 <!-- ============================== -->
@@ -190,57 +191,31 @@
         color: white;
         text-shadow: 0 0 8px gold;
     }
-
-    @keyframes navFadeIn {
-        from { opacity: 0; transform: translateY(-20px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
 </style>
 
-<!-- Add margin so content doesn't hide behind navbar -->
 <div style="height: 70px;"></div>
 
-    
-<!-- ======================================== -->
-<!--   CINEMATIC INTRO OVERLAY (REFRESH COIN) -->
-<!-- ======================================== -->
+<!-- Cinematic Intro -->
 <div id="cinematic-intro">
     <img src="assets/logos/fgm_coin_glow.png" class="intro-logo">
 </div>
 
-<!-- ==================================== -->
-<!--     HERO SECTION (ROTATING COIN)     -->
-<!-- ==================================== -->
+<!-- HERO -->
 <header>
-
-    <!-- Rotating Coin -->
     <div class="rotating-coin-wrapper">
-    <img 
-        src="assets/logos/fgm_coin_loader.png"
-        class="rotating-coin"
-        alt="Rotating FGM Gold Coin"
-    >
-</div>
+        <img src="assets/logos/fgm_coin_loader.png" class="rotating-coin" alt="Rotating FGM Gold Coin">
+    </div>
 
-
-    <!-- Text Block -->
     <div>
         <h1>Forex Golden Momentum</h1>
         <p>Precision · Momentum · Logic</p>
     </div>
-
 </header>
 
-<!-- ========================== -->
-<!--       MAIN BUTTONS         -->
-<!-- ========================== -->
+<!-- Buttons -->
+<a class="btn" href="register.html">Open XM Account</a>
 
-<a class="btn" href="register.html">
-   Open XM Account
-</a>
-
-<a class="btn" 
-   style="opacity:0.5; pointer-events:none; background-color:#9c7f28;">
+<a class="btn" style="opacity:0.5; pointer-events:none; background-color:#9c7f28;">
     Copy My Trading Strategy (COMING SOON)
 </a>
 
@@ -250,12 +225,10 @@
 
 <!-- Partner Code -->
 <div style="margin-top: 30px; color: #f7d774; font-size: 1.1rem;">
-    <strong>XM Partner Code:</strong> 
+    <strong>XM Partner Code:</strong>
     <span style="font-weight:bold; color:#ffd95e;">QHFFT</span>
-    <br><small>(Enter this during registration to be included under Forex Golden Momentum)</small>
 </div>
 
-<!-- Copy button -->
 <button 
     onclick="navigator.clipboard.writeText('QHFFT')" 
     style="
@@ -271,39 +244,28 @@
     Copy Partner Code
 </button>
 
-<!-- ============================== -->
-<!--         XM PROMO BANNER        -->
-<!-- ============================== -->
-
-<div style="
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 750px;
-    background: rgba(60, 40, 0, 0.25);
-    border: 1px solid #c59d29;
-    border-radius: 12px;
-    text-align: center;
-">
-    <a href="https://clicks.pipaffiliates.com/c?m=132219&c=1013015" 
-       referrerpolicy="no-referrer-when-downgrade">
-        <img src="https://ads.pipaffiliates.com/i/132219?c=1013015" 
-             width="728" height="90"
-             style="max-width: 100%; height: auto; border-radius: 6px;"
-             referrerpolicy="no-referrer-when-downgrade"/>
-    </a>
-</div>
-
-    
+<!-- Footer -->
 <footer>
     © 2025 Forex Golden Momentum — Built by Felix G. Morandarte Jr.
 </footer>
 
-<!-- Fade-out timing logic -->
+<!-- Fade-out logic -->
 <script>
 setTimeout(() => {
     let intro = document.getElementById("cinematic-intro");
     if (intro) intro.style.display = "none";
 }, 6000);
+</script>
+
+<!-- 🎵 AUTO-PLAY SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("fgm-music");
+    audio.volume = 0.30;
+
+    // Browsers may block until user clicks, but we still try
+    audio.play().catch(() => {});
+});
 </script>
 
 </body>
