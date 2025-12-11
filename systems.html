@@ -5,52 +5,141 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FGM — Our Systems</title>
+
 <style>
-body{background:#000;color:#f7d774;font-family:Arial;margin:0;padding:40px;text-align:center}
-.wrap{max-width:980px;margin:0 auto}
-h1{color:#ffd95e;margin-bottom:6px}
-p.lead{color:#e8d48c}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:24px}
-.card{background:rgba(60,40,0,0.25);border:1px solid #c59d29;border-radius:12px;padding:18px;text-align:left}
-.card h3{margin-top:0;color:#ffd95e}
-.card p{color:#f7d774}
-a.btn{display:inline-block;margin-top:12px;padding:10px 16px;background:#c59d29;color:black;text-decoration:none;border-radius:8px;font-weight:bold}
+body {
+    background:#000;
+    color:#f7d774;
+    font-family:Arial;
+    margin:0;
+    text-align:center;
+}
+
+/* Wrapper */
+.wrap {
+    max-width:980px;
+    margin:0 auto;
+    padding:40px 20px;
+}
+
+h1 {
+    color:#ffd95e;
+    margin-bottom:6px;
+}
+
+p.lead {
+    color:#e8d48c;
+}
+
+/* Cards Layout */
+.cards {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:18px;
+    margin-top:24px;
+}
+
+.card {
+    background:rgba(60,40,0,0.25);
+    border:1px solid #c59d29;
+    border-radius:12px;
+    padding:18px;
+    text-align:left;
+}
+
+.card h3 {
+    margin-top:0;
+    color:#ffd95e;
+}
+
+.card p {
+    color:#f7d774;
+}
+
+a.btn {
+    display:inline-block;
+    margin-top:12px;
+    padding:10px 16px;
+    background:#c59d29;
+    color:black;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+a.btn:hover {
+    background:#e6b944;
+    box-shadow:0 0 8px gold;
+}
 </style>
+
 </head>
 <body>
+
+<!-- DYNAMIC NAVIGATION -->
+<div id="nav-placeholder"></div>
+
+<script>
+function underMaintenance() {
+    alert("Under Maintenance");
+}
+
+// Load shared navigation
+fetch("nav.html")
+  .then(r => r.text())
+  .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+  })
+  .catch(() => {
+      // fallback minimal nav
+      document.getElementById("nav-placeholder").innerHTML =
+      '<nav style="padding:14px;text-align:center;background:rgba(0,0,0,0.6);"><a href="index.html" style="color:#ffd95e;margin:0 12px;text-decoration:none;">Home</a></nav>';
+  });
+</script>
+
+<!-- Space so nav doesn't overlap content -->
+<div style="height:70px;"></div>
+
+<!-- MAIN CONTENT -->
 <div class="wrap">
+
 <h1>Our Systems — Forex Golden Momentum</h1>
 <p class="lead">Precision · Momentum · Logic — concise product pages for each EA.</p>
 
-
 <div class="cards">
-<div class="card">
-<h3>STARTREND — Twin Spike</h3>
-<p>Patient, structure-driven entry engine that locks a first spike and waits for a confirming second spike before entering.</p>
-<a class="btn" href="startrend.html">View STARTREND</a>
+
+    <!-- STARTREND -->
+    <div class="card">
+        <h3>STARTREND — Twin Spike</h3>
+        <p>Patient, structure-driven entry engine that locks a first spike and waits for a confirming second spike before entering.</p>
+        <a class="btn" href="startrend.html">View STARTREND</a>
+    </div>
+
+    <!-- BAT -->
+    <div class="card">
+        <h3>BAT — Breakout After Trap</h3>
+        <p>Breakout filter that detects traps and executes only when a high-probability breakout with follow-through occurs.</p>
+        <a class="btn" href="bat.html">View BAT</a>
+    </div>
+
+    <!-- QUICKPROFIT -->
+    <div class="card">
+        <h3>QuickProfit</h3>
+        <p>Fast-execution scalper for short, clean momentum moves with a simple risk framework and split take-profits.</p>
+        <a class="btn" href="quickprofit.html">View QuickProfit</a>
+    </div>
+
+    <!-- BACK HOME -->
+    <div class="card">
+        <h3>FGM Suite</h3>
+        <p>Overview, licensing information, and links to documentation and forward-testing results (coming soon).</p>
+        <a class="btn" href="index.html">Back to Homepage</a>
+    </div>
+
 </div>
 
-
-<div class="card">
-<h3>BAT — Breakout After Trap</h3>
-<p>Breakout filter that detects traps and executes only when a high-probability breakout with follow-through occurs.</p>
-<a class="btn" href="bat.html">View BAT</a>
 </div>
 
-
-<div class="card">
-<h3>QuickProfit</h3>
-<p>Fast-execution scalper for short, clean momentum moves with a simple risk framework and split take-profits.</p>
-<a class="btn" href="quickprofit.html">View QuickProfit</a>
-</div>
-
-
-<div class="card">
-<h3>FGM Suite</h3>
-<p>Overview, licensing information, and links to documentation and forward-testing results (coming soon).</p>
-<a class="btn" href="index.html">Back to Homepage</a>
-</div>
-</div>
-</div>
 </body>
 </html>
