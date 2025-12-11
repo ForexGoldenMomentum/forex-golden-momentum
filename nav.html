@@ -1,3 +1,6 @@
+<!-- nav.html -->
+<link rel="stylesheet" href="nav.css">
+
 <nav style="
     position: fixed;
     top: 0;
@@ -7,12 +10,12 @@
     background: rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid rgba(197, 157, 41, 0.35);
-    z-index: 9999;
     text-align: center;
+    z-index: 9999;
 ">
     <a href="index.html">Home</a>
 
-    <!-- Disabled (Maintenance Mode) -->
+    <!-- Disabled Buttons -->
     <a href="#" onclick="underMaintenance(); return false;">Register</a>
     <a href="#" onclick="underMaintenance(); return false;">XM Bonus Offers</a>
     <a href="#" onclick="underMaintenance(); return false;">Our Systems</a>
@@ -71,7 +74,6 @@ nav a:hover {
             This feature is currently being updated.<br>
             Please check back soon.
         </p>
-
         <button onclick="closeMaintenance()"
             style="
                 margin-top:18px;
@@ -88,6 +90,7 @@ nav a:hover {
     </div>
 </div>
 
+<!-- JAVASCRIPT -->
 <script>
 function underMaintenance() {
     document.getElementById("maintenanceModal").style.display = "flex";
