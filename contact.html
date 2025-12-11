@@ -113,17 +113,20 @@
 
 <body>
 
-<!-- NAVIGATION -->
-<nav>
-    <a href="index.html">Home</a>
+<div id="nav-placeholder"></div>
 
-    <!-- Deactivated buttons -->
-    <a href="#" onclick="underMaintenance(); return false;">Register</a>
-    <a href="#" onclick="underMaintenance(); return false;">XM Bonus Offers</a>
+<script>
+function underMaintenance() {
+    alert("Under Maintenance");
+}
 
-    <a href="#">Our Systems</a>
-    <a href="contact.html">Contact</a>
-</nav>
+fetch("nav.html")
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+  });
+</script>
+
 
 
 <div class="spacer"></div>
