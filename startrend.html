@@ -5,66 +5,72 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STARTREND — FGM</title>
+
 <style>
-body { background:#000; color:#f7d774; font-family:Arial; text-align:center; padding:40px; margin:0; }
+body { 
+    background:#000; 
+    color:#f7d774; 
+    font-family:Arial; 
+    text-align:center; 
+    margin:0;
+    padding-top:80px; /* space for dynamic nav */
+}
 h1 { color:#ffd95e; }
-.box { max-width:900px; margin:40px auto; padding:24px; border:1px solid #c59d29; border-radius:12px; background:rgba(60,40,0,0.25); text-align:left }
+.box { 
+    max-width:900px; 
+    margin:auto; 
+    padding:24px; 
+    border:1px solid #c59d29; 
+    border-radius:12px; 
+    background:rgba(60,40,0,0.25); 
+    text-align:left 
+}
 .meta{color:#e8d48c}
-a.back{color:#ffd95e;display:inline-block;margin-top:18px;text-decoration:none}
-footer { margin-top:40px; color:#8a793e; font-size:0.9rem; text-align:center; padding-bottom:20px; }
+a.back{color:#ffd95e;display:inline-block;margin-top:18px}
 </style>
 </head>
+
 <body>
 
 <!-- DYNAMIC NAVIGATION -->
 <div id="nav-placeholder"></div>
 
 <script>
-function underMaintenance() {
-    alert("Under Maintenance");
-}
-
-// Load the shared nav
-fetch("nav.html")
-  .then(response => response.text())
-  .then(data => {
-      document.getElementById("nav-placeholder").innerHTML = data;
-  })
-  .catch(err => {
-      console.warn("Could not load nav.html:", err);
-      // Fallback minimal nav if nav.html missing
-      document.getElementById("nav-placeholder").innerHTML =
-        '<nav style="padding:14px;text-align:center;background:rgba(0,0,0,0.6);"><a href="index.html" style="color:#ffd95e;margin:0 12px;text-decoration:none;">Home</a></nav>';
+fetch("nav.html?v=1")
+  .then(r => r.text())
+  .then(html => { 
+      document.getElementById("nav-placeholder").innerHTML = html; 
   });
 </script>
 
-<!-- spacer so content is not hidden behind nav -->
-<div style="height:70px;"></div>
-
-<!-- PAGE CONTENT -->
 <h1>STARTREND — Twin Spike</h1>
+
 <div class="box">
-  <p class="meta">Version: v1.01 • Engine: Twin-Spike Detection + RetroScan</p>
 
-  <h2>What it does</h2>
-  <p>STARTREND patiently identifies a first strong spike then waits for a validating second spike in the same direction before entering. It includes deep retro-scan, spike-decay invalidation, and configurable risk settings.</p>
+<p class="meta">Version: v1.01 • Engine: Twin-Spike Detection + RetroScan</p>
 
-  <h2>Why traders use it</h2>
-  <ul>
-    <li>Market-structure based — avoids noise</li>
-    <li>Very selective — fewer, higher-quality trades</li>
-    <li>Robust to indicator smoothing via re-validation</li>
-  </ul>
+<h2>What it does</h2>
+<p>
+STARTREND patiently identifies a first strong spike then waits for a validating 
+second spike in the same direction before entering. It includes deep retro-scan, 
+spike-decay invalidation, and configurable risk settings.
+</p>
 
-  <h2>Quick Specs</h2>
-  <p>Default timeframe: H1 • Default SpikeThreshold: 11 • SL 50 pips • TP 100 pips</p>
+<h2>Why traders use it</h2>
+<ul>
+<li>Market-structure based — avoids noise</li>
+<li>Very selective — fewer, higher-quality trades</li>
+<li>Robust to indicator smoothing via re-validation</li>
+</ul>
 
-  <a class="back" href="systems.html">← Back to Our Systems</a>
+<h2>Quick Specs</h2>
+<p>
+Default timeframe: H1 • Default SpikeThreshold: 11 • SL 50 pips • TP 100 pips
+</p>
+
+<a class="back" href="systems.html">← Back to Our Systems</a>
+
 </div>
-
-<footer>
-  © 2025 Forex Golden Momentum — Built by Felix G. Morandarte Jr.
-</footer>
 
 </body>
 </html>
