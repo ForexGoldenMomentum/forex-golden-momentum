@@ -5,34 +5,77 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QuickProfit — FGM</title>
+
 <style>
-body { background:#000; color:#f7d774; font-family:Arial; text-align:center; padding:40px; }
+body { 
+    background:#000; 
+    color:#f7d774; 
+    font-family:Arial; 
+    text-align:center; 
+    padding:40px; 
+}
 h1 { color:#ffd95e; }
-.box { max-width:900px; margin:auto; padding:24px; border:1px solid #c59d29; border-radius:12px; background:rgba(60,40,0,0.25); text-align:left }
-a.back{color:#ffd95e;display:inline-block;margin-top:18px}
+.box { 
+    max-width:900px; 
+    margin:auto; 
+    padding:24px; 
+    border:1px solid #c59d29; 
+    border-radius:12px; 
+    background:rgba(60,40,0,0.25); 
+    text-align:left;
+}
+a.back {
+    color:#ffd95e;
+    display:inline-block;
+    margin-top:18px;
+}
 </style>
+
 </head>
 <body>
+
+<!-- ============================== -->
+<!--  DYNAMIC NAVIGATION PLACEMENT  -->
+<!-- ============================== -->
+
+<div id="nav-placeholder"></div>
+
+<script>
+function underMaintenance() {
+    alert("Under Maintenance");
+}
+
+fetch("nav.html")
+  .then(r => r.text())
+  .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+  });
+</script>
+
+<!-- Page Content -->
 <h1>QuickProfit — Fast Momentum Entries</h1>
+
 <div class="box">
 <p class="meta">Version: v1.00 • Engine: LWMA50/200 early cross</p>
-<h2>What it does</h2>
-<p>QuickProfit detects early LWMA crosses and opens split trades with quick take-profits for fast, controlled gains. It is simple, reliable, and easy to forward-test.</p>
 
+<h2>What it does</h2>
+<p>
+QuickProfit detects early LWMA crosses and opens split trades with quick take-profits for fast, controlled gains.
+It is simple, reliable, and easy to forward-test.
+</p>
 
 <h2>Why traders use it</h2>
 <ul>
-<li>Lightweight and low-overhead</li>
-<li>Simple rules — fast execution</li>
-<li>Great as a complement to longer-term EAs</li>
+    <li>Lightweight and low-overhead</li>
+    <li>Simple rules — fast execution</li>
+    <li>Great as a complement to longer-term EAs</li>
 </ul>
-
 
 <h2>Quick Specs</h2>
 <p>Default timeframe: H1 • LWMA 50/200 • SL/TP adjustable • Two simultaneous entries per signal</p>
 
-
 <a class="back" href="systems.html">← Back to Our Systems</a>
 </div>
+
 </body>
 </html>
