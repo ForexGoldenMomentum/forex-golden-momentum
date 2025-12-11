@@ -12,13 +12,28 @@ h1 { color:#ffd95e; }
 a.back{color:#ffd95e;display:inline-block;margin-top:18px}
 </style>
 </head>
+
 <body>
+
+<div id="nav-placeholder"></div>
+
+<script>
+function underMaintenance() {
+    alert("Under Maintenance");
+}
+
+fetch("nav.html")
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+  });
+</script>
+
 <h1>BAT — Breakout After Trap</h1>
 <div class="box">
 <p class="meta">Version: v1.04 • Engine: LWMA lock + EMA confirmation</p>
 <h2>What it does</h2>
 <p>BAT looks for a trap pattern followed by a confirmed breakout with LWMA and EMA alignment. It includes a robust management engine (GhostBuster) to handle broker-side closures and scheduled safe SL modifications.</p>
-
 
 <h2>Why traders use it</h2>
 <ul>
@@ -27,12 +42,11 @@ a.back{color:#ffd95e;display:inline-block;margin-top:18px}
 <li>Ideal for H1 trend following</li>
 </ul>
 
-
 <h2>Quick Specs</h2>
 <p>Default timeframe: H1 • LWMA 50/200 • Pullback EMAs: 20 & 50 • Hard TP optional</p>
 
-
 <a class="back" href="systems.html">← Back to Our Systems</a>
 </div>
+
 </body>
 </html>
