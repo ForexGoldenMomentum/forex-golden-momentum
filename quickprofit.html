@@ -23,12 +23,42 @@ h1 { color:#ffd95e; }
     border:1px solid #c59d29; 
     border-radius:12px; 
     background:rgba(60,40,0,0.25); 
-    text-align:left 
+    text-align:left;
 }
 a.back{
     color:#ffd95e;
     display:inline-block;
     margin-top:18px;
+}
+.meta { color:#e8d48c }
+
+/* Maintenance Modal */
+#maintenanceModal {
+    display:none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    z-index: 99999;
+    justify-content:center;
+    align-items:center;
+}
+#maintenanceModal .box2 {
+    background: rgba(20,14,0,0.95);
+    padding: 28px 32px;
+    border: 1px solid #c59d29;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 360px;
+    box-shadow: 0 0 12px rgba(255,215,0,0.4);
+    animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
 }
 </style>
 </head>
@@ -44,6 +74,13 @@ fetch("nav.html?v=1")
   .then(html => { 
       document.getElementById("nav-placeholder").innerHTML = html; 
   });
+
+function underMaintenance() {
+    document.getElementById("maintenanceModal").style.display = "flex";
+}
+function closeMaintenance() {
+    document.getElementById("maintenanceModal").style.display = "none";
+}
 </script>
 
 <h1>QuickProfit — Fast Momentum Entries</h1>
@@ -66,9 +103,37 @@ and easy to forward-test.
 </ul>
 
 <h2>Quick Specs</h2>
-<p>Default timeframe: H1 • LWMA 50/200 • SL/TP adjustable • Two simultaneous entries per signal</p>
+<p>
+Default timeframe: H1 • LWMA 50/200 • SL/TP adjustable • 
+Two simultaneous entries per signal
+</p>
 
 <a class="back" href="systems.html">← Back to Our Systems</a>
+</div>
+
+<!-- MAINTENANCE MODAL -->
+<div id="maintenanceModal">
+    <div class="box2">
+        <h2 style="color:#ffd95e; text-shadow:0 0 6px gold;">🔧 Under Maintenance</h2>
+        <p style="color:#e8d48c;">
+            This feature is currently being updated.<br>
+            Please check back soon.
+        </p>
+
+        <button onclick="closeMaintenance()"
+            style="
+                margin-top:18px;
+                padding:10px 20px;
+                background:#c59d29;
+                color:black;
+                border:none;
+                border-radius:8px;
+                cursor:pointer;
+                font-weight:bold;
+            ">
+            CLOSE
+        </button>
+    </div>
 </div>
 
 </body>
