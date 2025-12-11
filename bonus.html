@@ -68,13 +68,20 @@
 
 <body>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="register.html">Register</a>
-    <a href="bonus.html">XM Bonus Offers</a>
-    <a href="systems.html">Our Systems</a>
-    <a href="contact.html">Contact</a>
-</nav>
+<div id="nav-placeholder"></div>
+
+<script>
+function underMaintenance() {
+    alert("Under Maintenance");
+}
+
+fetch("nav.html")
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+  });
+</script>
+
 
 <div class="page-container">
 
