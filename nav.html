@@ -17,7 +17,7 @@
     <a href="#" onclick="underMaintenance(); return false;">Register</a>
     <a href="#" onclick="underMaintenance(); return false;">XM Bonus Offers</a>
     <a href="#" onclick="underMaintenance(); return false;">Our Systems</a>
-   
+
     <a href="contact.html">Contact</a>
 </nav>
 
@@ -35,4 +35,66 @@ nav a:hover {
     color: white;
     text-shadow: 0 0 8px gold;
 }
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
 </style>
+
+<!-- MAINTENANCE MODAL -->
+<div id="maintenanceModal" style="
+    display:none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    z-index: 99999;
+    justify-content:center;
+    align-items:center;
+">
+    <div style="
+        background: rgba(20, 14, 0, 0.95);
+        padding: 28px 32px;
+        border: 1px solid #c59d29;
+        border-radius: 12px;
+        text-align: center;
+        max-width: 360px;
+        box-shadow: 0 0 12px rgba(255,215,0,0.4);
+        animation: fadeIn 0.4s ease;
+    ">
+        <h2 style="color:#ffd95e; margin-top:0; text-shadow:0 0 6px gold;">
+            🔧 Under Maintenance
+        </h2>
+        <p style="color:#e8d48c; font-size:1.1rem;">
+            This feature is currently being updated.<br>
+            Please check back soon.
+        </p>
+
+        <button onclick="closeMaintenance()"
+            style="
+                margin-top:18px;
+                padding:10px 20px;
+                background:#c59d29;
+                color:black;
+                border:none;
+                border-radius:8px;
+                cursor:pointer;
+                font-weight:bold;
+            ">
+            CLOSE
+        </button>
+    </div>
+</div>
+
+<!-- MAINTENANCE SCRIPT -->
+<script>
+function underMaintenance() {
+    document.getElementById("maintenanceModal").style.display = "flex";
+}
+function closeMaintenance() {
+    document.getElementById("maintenanceModal").style.display = "none";
+}
+</script>
