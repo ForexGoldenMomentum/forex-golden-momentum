@@ -19,10 +19,6 @@
         text-align: center;
     }
 
-    /* ========================== */
-    /*   ROTATING COIN HERO CSS   */
-    /* ========================== */
-
     header {
         padding: 40px 20px;
         display: flex;
@@ -90,7 +86,6 @@
         color: #8a793e;
     }
 
-    /* CINEMATIC INTRO CSS */
     #cinematic-intro {
         position: fixed;
         top: 0;
@@ -135,7 +130,6 @@
         0% { opacity: 1; }
         100% { opacity: 0; visibility: hidden; }
     }
-
     </style>
 
 </head>
@@ -146,20 +140,20 @@
 <audio id="fgm-music" src="assets/music/fgm_theme.wav"></audio>
 
 <!-- ============================== -->
-<!--  DYNAMIC NAVIGATION PLACEMENT  -->
+<!--  DYNAMIC NAVIGATION LOADER     -->
 <!-- ============================== -->
 
 <div id="nav-placeholder"></div>
 
 <script>
-fetch("nav.html")
+fetch("nav.html?v=1")
   .then(r => r.text())
   .then(data => { 
       document.getElementById("nav-placeholder").innerHTML = data; 
   });
 </script>
 
-<!-- Spacer to avoid nav overlap -->
+<!-- Spacer -->
 <div style="height: 70px;"></div>
 
 <!-- CINEMATIC INTRO -->
@@ -180,13 +174,13 @@ fetch("nav.html")
 </header>
 
 <!-- BUTTONS -->
-<a class="btn" href="register.html">Open XM Account</a>
+<a class="btn" href="#" onclick="underMaintenance(); return false;">Open XM Account</a>
 
 <a class="btn" style="opacity:0.5; pointer-events:none; background-color:#9c7f28;">
     Copy My Trading Strategy (COMING SOON)
 </a>
 
-<a class="btn" href="https://affs.click/AqfQt" target="_blank">
+<a class="btn" href="#" onclick="underMaintenance(); return false;">
     XM Bonus Offers
 </a>
 
