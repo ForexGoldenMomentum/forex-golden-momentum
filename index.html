@@ -152,13 +152,11 @@
 <div id="nav-placeholder"></div>
 
 <script>
-function underMaintenance() {
-    alert("Under Maintenance");
-}
-
 fetch("nav.html")
   .then(r => r.text())
-  .then(data => { document.getElementById("nav-placeholder").innerHTML = data; });
+  .then(data => { 
+      document.getElementById("nav-placeholder").innerHTML = data; 
+  });
 </script>
 
 <!-- Spacer to avoid nav overlap -->
