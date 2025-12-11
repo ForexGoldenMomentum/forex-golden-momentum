@@ -12,7 +12,8 @@ body {
     color:#f7d774; 
     font-family:Arial; 
     text-align:center; 
-    padding:40px; 
+    margin:0;
+    padding-top:80px; /* space for nav */
 }
 h1 { color:#ffd95e; }
 .box { 
@@ -22,37 +23,29 @@ h1 { color:#ffd95e; }
     border:1px solid #c59d29; 
     border-radius:12px; 
     background:rgba(60,40,0,0.25); 
-    text-align:left;
+    text-align:left 
 }
-a.back {
+a.back{
     color:#ffd95e;
     display:inline-block;
     margin-top:18px;
 }
 </style>
-
 </head>
+
 <body>
 
-<!-- ============================== -->
-<!--  DYNAMIC NAVIGATION PLACEMENT  -->
-<!-- ============================== -->
-
+<!-- DYNAMIC NAVIGATION -->
 <div id="nav-placeholder"></div>
 
 <script>
-function underMaintenance() {
-    alert("Under Maintenance");
-}
-
-fetch("nav.html")
+fetch("nav.html?v=1")
   .then(r => r.text())
-  .then(data => {
-      document.getElementById("nav-placeholder").innerHTML = data;
+  .then(html => { 
+      document.getElementById("nav-placeholder").innerHTML = html; 
   });
 </script>
 
-<!-- Page Content -->
 <h1>QuickProfit — Fast Momentum Entries</h1>
 
 <div class="box">
@@ -60,15 +53,16 @@ fetch("nav.html")
 
 <h2>What it does</h2>
 <p>
-QuickProfit detects early LWMA crosses and opens split trades with quick take-profits for fast, controlled gains.
-It is simple, reliable, and easy to forward-test.
+QuickProfit detects early LWMA crosses and opens split trades with 
+quick take-profits for fast, controlled gains. It is simple, reliable, 
+and easy to forward-test.
 </p>
 
 <h2>Why traders use it</h2>
 <ul>
-    <li>Lightweight and low-overhead</li>
-    <li>Simple rules — fast execution</li>
-    <li>Great as a complement to longer-term EAs</li>
+<li>Lightweight and low-overhead</li>
+<li>Simple rules — fast execution</li>
+<li>Great as a complement to longer-term EAs</li>
 </ul>
 
 <h2>Quick Specs</h2>
