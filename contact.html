@@ -1,150 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Forex Golden Momentum</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #f7d774;
+    text-align: center;
+    padding: 40px 20px;
+}
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact • Forex Golden Momentum</title>
+.contact-container {
+    max-width: 700px;
+    margin: 100px auto 40px auto;
+    padding: 30px;
+    background: rgba(60, 40, 0, 0.25);
+    border: 1px solid #c59d29;
+    border-radius: 12px;
+}
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #f7d774;
-            text-align: center;
-        }
+.contact-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #c59d29;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
 
-        /* ====================== */
-        /* NAVIGATION BAR (same as index) */
-        /* ====================== */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 14px 0;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(6px);
-            border-bottom: 1px solid rgba(197, 157, 41, 0.35);
-            z-index: 9999;
-            text-align: center;
-            animation: navFadeIn 1.4s ease;
-        }
-        nav a {
-            margin: 0 18px;
-            color: #ffd95e;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-        nav a:hover {
-            color: white;
-            text-shadow: 0 0 8px gold;
-        }
-        @keyframes navFadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
+.contact-btn:hover {
+    background-color: #e6b944;
+    box-shadow: 0 0 6px gold;
+}
 
-        /* space so nav doesn't cover content */
-        .spacer {
-            height: 70px;
-        }
-
-        /* ====================== */
-        /* CONTACT PAGE DESIGN */
-        /* ====================== */
-        .contact-container {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 30px;
-            background: rgba(60, 40, 0, 0.25);
-            border: 1px solid #c59d29;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            color: #ffd95e;
-            text-shadow: 0 0 10px rgba(255, 217, 94, 0.3);
-        }
-
-        p {
-            color: #e8d48c;
-            font-size: 1.1rem;
-            line-height: 1.6rem;
-        }
-
-        /* CONTACT BUTTONS */
-        .contact-btn {
-            display: block;
-            width: 90%;
-            max-width: 350px;
-            margin: 18px auto;
-            padding: 14px;
-            background-color: #c59d29;
-            color: black;
-            font-weight: bold;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 1.15rem;
-            transition: 0.3s;
-        }
-        .contact-btn:hover {
-            background-color: #e6b944;
-            box-shadow: 0 0 10px gold;
-        }
-
-        footer {
-            margin-top: 50px;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #8a793e;
-        }
-
-    </style>
+footer {
+    margin-top: 60px;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #8a793e;
+}
+</style>
 </head>
 
 <body>
 
+<!-- DYNAMIC NAVIGATION -->
 <div id="nav-placeholder"></div>
 
 <script>
-function underMaintenance() {
-    alert("Under Maintenance");
-}
-
-fetch("nav.html")
-  .then(response => response.text())
+fetch("nav.html?v=1")
+  .then(r => r.text())
   .then(data => {
       document.getElementById("nav-placeholder").innerHTML = data;
   });
 </script>
 
-
-
-<div class="spacer"></div>
+<!-- Spacer so content does not hide under nav -->
+<div style="height: 70px;"></div>
 
 <!-- CONTACT BOX -->
 <div class="contact-container">
     <h1>Contact Forex Golden Momentum</h1>
 
     <p>
-        For inquiries, support, partnership concerns, or EA development collaboration,<br>
-        feel free to contact us through the secure channels below.
+        For inquiries, support, or EA development collaboration,<br>
+        feel free to reach out through our official email.
     </p>
 
     <a class="contact-btn" href="mailto:forexgoldenmomentum@gmail.com">
         📧 Email: forexgoldenmomentum@gmail.com
     </a>
 
-    
     <p style="margin-top:25px; font-size:0.95rem; opacity:0.7;">
         Expect responses within 12–24 hours.
     </p>
@@ -156,4 +90,3 @@ fetch("nav.html")
 
 </body>
 </html>
-
