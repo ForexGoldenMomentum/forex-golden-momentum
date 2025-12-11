@@ -72,56 +72,31 @@
 </head>
 <body>
 
-<!-- ============================== -->
-<!--        TOP NAVIGATION BAR      -->
-<!-- ============================== -->
+<!-- =================================== -->
+<!--          DYNAMIC NAVIGATION          -->
+<!-- =================================== -->
 
-<nav style="
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 14px 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid rgba(197, 157, 41, 0.35);
-    z-index: 9999;
-    text-align: center;
-    animation: navFadeIn 1.4s ease;
-">
-    <a href="index.html" style="margin: 0 18px; color: #ffd95e; text-decoration: none; font-weight: bold; font-size: 1rem; transition: 0.3s;">
-        Home
-    </a>
-    <a href="register.html" style="margin: 0 18px; color: #ffd95e; text-decoration: none; font-weight: bold; font-size: 1rem; transition: 0.3s;">
-        Register
-    </a>
-    <a href="#" style="margin: 0 18px; color: #ffd95e; text-decoration: none; font-weight: bold; font-size: 1rem; transition: 0.3s;">
-        XM Bonus Offers
-    </a>
-    <a href="#" style="margin: 0 18px; color: #ffd95e; text-decoration: none; font-weight: bold; font-size: 1rem; transition: 0.3s;">
-        Our Systems
-    </a>
-    <a href="#" style="margin: 0 18px; color: #ffd95e; text-decoration: none; font-weight: bold; font-size: 1rem; transition: 0.3s;">
-        Contact
-    </a>
-</nav>
+<div id="nav-placeholder"></div>
 
-<style>
-    nav a:hover {
-        color: white;
-        text-shadow: 0 0 8px gold;
-    }
+<script>
+function underMaintenance() {
+    alert("Under Maintenance");
+}
 
-    @keyframes navFadeIn {
-        from { opacity: 0; transform: translateY(-20px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-</style>
+fetch("nav.html")
+  .then(r => r.text())
+  .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+  });
+</script>
 
-<!-- Add margin so content doesn't hide behind navbar -->
+<!-- Page Spacing Under Nav -->
 <div style="height: 70px;"></div>
 
-    
+<!-- =================================== -->
+<!--             PAGE CONTENT             -->
+<!-- =================================== -->
+
 <div class="container">
 
     <h1>Register Your XM Account</h1>
@@ -151,42 +126,37 @@
         <p>On the XM registration form, locate this field:</p>
 
         <p style="font-size:1.2rem; color:#ffd95e;">
-        <strong>Have a Partner Code? Enter here</strong>
+            <strong>Have a Partner Code? Enter here</strong>
         </p>
-
 
         <p>Paste your code: <strong style="color:#ffd95e;">QHFFT</strong></p>
 
         <p>This step is required to ensure you receive exclusive Forex Golden Momentum benefits.</p>
     </div>
 
-<!-- ============================== -->
-<!--      XM PROMO BANNER (REG)     -->
-<!-- ============================== -->
+    <!-- XM Promo Banner -->
+    <div style="
+        margin: 40px auto;
+        padding: 20px;
+        max-width: 350px;
+        background: rgba(60, 40, 0, 0.25);
+        border: 1px solid #c59d29;
+        border-radius: 12px;
+        text-align: center;
+    ">
+        <a href="https://clicks.pipaffiliates.com/c?m=132162&c=1013015" 
+           referrerpolicy="no-referrer-when-downgrade">
+            <img src="https://ads.pipaffiliates.com/i/132162?c=1013015" 
+                 width="300" height="250"
+                 style="max-width: 100%; height: auto; border-radius: 6px;"
+                 referrerpolicy="no-referrer-when-downgrade"/>
+        </a>
+    </div>
 
-<div style="
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 350px;
-    background: rgba(60, 40, 0, 0.25);
-    border: 1px solid #c59d29;
-    border-radius: 12px;
-    text-align: center;
-">
-    <a href="https://clicks.pipaffiliates.com/c?m=132162&c=1013015" 
-       referrerpolicy="no-referrer-when-downgrade">
-        <img src="https://ads.pipaffiliates.com/i/132162?c=1013015" 
-             width="300" height="250"
-             style="max-width: 100%; height: auto; border-radius: 6px;"
-             referrerpolicy="no-referrer-when-downgrade"/>
-    </a>
-</div>
-    
-    
-<!-- BACK TO HOMEPAGE BUTTON -->
-<div style="margin-top: 40px;">
-    <a href="index.html" 
-       style="
+    <!-- BACK TO HOMEPAGE BUTTON -->
+    <div style="margin-top: 40px;">
+        <a href="index.html" 
+        style="
             padding: 12px 24px;
             background-color: #c59d29;
             color: black;
@@ -195,13 +165,12 @@
             text-decoration: none;
             display: inline-block;
             transition: 0.3s;
-       "
-       onmouseover="this.style.backgroundColor='#e6b944'; this.style.boxShadow='0 0 8px gold';"
-       onmouseout="this.style.backgroundColor='#c59d29'; this.style.boxShadow='none';"
-    >
-        ← Back to Homepage
-    </a>
-</div>
+        "
+        onmouseover="this.style.backgroundColor='#e6b944'; this.style.boxShadow='0 0 8px gold';"
+        onmouseout="this.style.backgroundColor='#c59d29'; this.style.boxShadow='none';">
+            ← Back to Homepage
+        </a>
+    </div>
 
 </div>
 
@@ -214,4 +183,3 @@ function copyCode() {
 
 </body>
 </html>
-
