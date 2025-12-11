@@ -81,18 +81,11 @@
 </head>
 <body>
 
-<!-- ============================== -->
-<!--  DYNAMIC NAVIGATION PLACEMENT  -->
-<!-- ============================== -->
-
+<!-- DYNAMIC NAVIGATION -->
 <div id="nav-placeholder"></div>
 
 <script>
-function underMaintenance() {
-    alert("Under Maintenance");
-}
-
-fetch("nav.html")
+fetch("nav.html?v=1")
   .then(r => r.text())
   .then(data => {
       document.getElementById("nav-placeholder").innerHTML = data;
@@ -107,13 +100,10 @@ fetch("nav.html")
     <h1 style="color:#ffd95e;">FGM Music Player</h1>
     <p style="color:#e8d48c;">Premium Trading Ambience • Focus • Momentum</p>
 
-    <!-- Rotating Coin -->
     <img src="assets/logos/fgm_coin_loader.png" id="coin" class="coin" />
 
-    <!-- Audio Element -->
     <audio id="audio" src="assets/music/fgm_theme.mp3"></audio>
 
-    <!-- Play Button -->
     <div id="playBtn" class="play-btn">PLAY</div>
 
 </div>
